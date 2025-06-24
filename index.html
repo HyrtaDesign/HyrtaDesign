@@ -16,20 +16,24 @@
         }
         /* Eigene Klasse für Button-Stile im Hero-Bereich (Primär) */
         .btn-primary {
-            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg 
-                   transform hover:scale-105 hover:bg-indigo-700 hover:shadow-xl 
-                   transition-all duration-300 ease-in-out;
+            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg
+                   transform hover:scale-105 hover:bg-indigo-700 hover:shadow-xl
+                   transition-all duration-300 ease-in-out
+                   /* Deutlicherer Rahmen beim Hover durch Outline */
+                   hover:outline hover:outline-3 hover:outline-white hover:outline-offset-2; /* Weißer Rahmen beim Hover */
         }
         /* Eigene Klasse für Button-Stile im Hero-Bereich (Sekundär) */
         .btn-secondary {
-            @apply inline-block px-8 py-3 bg-transparent text-white font-semibold rounded-full 
-                   border-2 border-white 
-                   hover:bg-white hover:text-indigo-600 hover:shadow-xl 
-                   transition-all duration-300 ease-in-out;
+            @apply inline-block px-8 py-3 bg-transparent text-white font-semibold rounded-full
+                   border-2 border-white
+                   hover:bg-white hover:text-indigo-600
+                   transition-all duration-300 ease-in-out
+                   /* Farblich hervorgehobener Rahmen und stärkerer Schatten beim Hover */
+                   hover:border-4 hover:border-indigo-400 hover:shadow-xl hover:shadow-indigo-500/70;
         }
-        /* Neue Klasse für die "Jetzt anfragen"-Buttons in den Paketen */
+        /* Neue Klasse für die "Jetzt anfragen"-Buttons in den Paketen und Extras */
         .btn-package-cta {
-            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full 
+            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full
                    border-2 border-white shadow-lg /* Permanenter weißer Rahmen und Hintergrund */
                    hover:bg-indigo-700 hover:border-white /* Rahmen bleibt, Hintergrund dunkelt ab */
                    transition duration-300 ease-in-out;
@@ -52,8 +56,9 @@
             <a href="#" class="text-2xl font-bold text-indigo-600">HyrtaDesign</a> <!-- Website-Name geändert -->
             <ul class="hidden md:flex space-x-6">
                 <li><a href="#home" class="text-gray-600 hover:text-indigo-600 transition duration-300">Startseite</a></li>
-                <li><a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">Über HyrtaDesign</a></li>
+                <!-- "Über HyrtaDesign" entfernt -->
                 <li><a href="#packages" class="text-gray-600 hover:text-indigo-600 transition duration-300">Pakete</a></li>
+                <li><a href="#extras" class="text-gray-600 hover:text-indigo-600 transition duration-300">Extras</a></li> <!-- Neuer Navigationspunkt -->
                 <li><a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-300">Kontakt</a></li>
             </ul>
             <!-- Mobile Menu Button -->
@@ -72,8 +77,9 @@
         </div>
         <ul class="flex flex-col items-center space-y-6 mt-8">
             <li><a href="#home" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Startseite</a></li>
-            <li><a href="#about" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Über HyrtaDesign</a></li>
+            <!-- "Über HyrtaDesign" entfernt -->
             <li><a href="#packages" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pakete</a></li>
+            <li><a href="#extras" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Extras</a></li> <!-- Neuer Navigationspunkt -->
             <li><a href="#contact" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a></li>
         </ul>
     </div>
@@ -110,60 +116,59 @@
     </section>
 
     <!-- Pakete Section -->
-    <section id="packages" class="bg-gray-50 py-16 mb-16">
+    <section id="packages" class="bg-white py-16 mb-16"> <!-- Hintergrundfarbe auf Weiß geändert -->
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl mb-12">Webdesign-Pakete</h2>
+            <h2 class="text-3xl md:text-4xl mb-12">Unsere Webdesign-Pakete</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <!-- Paket Basis -->
+                <!-- Paket 1: Individuelles Design (Einfache Webseite) -->
                 <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Basis</h3>
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Design Start</h3> <!-- Präfix entfernt -->
                     <p class="text-4xl font-bold mb-6 text-gray-900">
-                        99,99 €
+                        299 €
                         <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
                     </p>
                     <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Einfache, professionelle Webseite (1-3 Seiten)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Responsive Design (mobilfreundlich)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Webdesign (1-3 Seiten)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Responsive & mobilfreundlich</li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Basiskonzeption & Design</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
-                    </ul>
-                    <p class="text-sm text-gray-600 mt-4 text-center">(* Bestehende Webseite erforderlich, inkl. Domain)</p> <!-- Punkt verschoben und in Klammern gesetzt -->
-                    <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
-                </div>
-
-                <!-- Paket Standard -->
-                <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Standard</h3>
-                    <p class="text-4xl font-bold mb-6 text-gray-900">
-                        ab 299,99 €
-                        <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
-                    </p>
-                    <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Umfangreichere Webseite (bis 5-7 Seiten)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile des Basis-Pakets</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> SEO-Grundlagen (Titel, Meta-Beschreibungen)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Google Maps Integration</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> SEO-Grundlagen (Titel, Meta-Beschreibung)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Kontaktformular</li>
                     </ul>
                     <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
                 </div>
 
-                <!-- Paket Premium -->
+                <!-- Paket 2: Komplexes Webdesign (Umfassende Webseite) -->
                 <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Premium</h3>
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Business Web</h3> <!-- Präfix entfernt -->
                     <p class="text-4xl font-bold mb-6 text-gray-900">
-                        ab 599,99 €
+                        649 €
                         <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
                     </p>
                     <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Komplexe Webseite (mehr Seiten)</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile des Standard-Pakets</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Webdesign (bis 7-10 Seiten)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile von Design Start</li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Erweiterte SEO-Optimierung</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Umfassende Content-Beratung</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Google Maps Integration</li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Galerien & Portfolio-Integration</li>
                         <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Social Media Integration</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> 6 Monate kostenloser technischer Support & Wartung</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Umfassende Content-Beratung</li>
+                    </ul>
+                    <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
+                </div>
+
+                <!-- Paket 3: Start-Up Komplettpaket (Einfache Webseite + Logo) -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Start-Up Komplett</h3> <!-- Präfix entfernt -->
+                    <p class="text-4xl font-bold mb-6 text-gray-900">
+                        429 €
+                        <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
+                    </p>
+                    <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile von Design Start (Einfache Webseite mit individuellem Design)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Inklusive Logo-Design (2 Entwürfe, 1 Revision)</li> <!-- Fettschrift entfernt -->
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Responsive & mobilfreundlich</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Erweiterter technischer Support (3 Monate kostenlos)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Basis-DSGVO-Textbausteine</li>
                     </ul>
                     <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
                 </div>
@@ -171,13 +176,64 @@
         </div>
     </section>
 
+    <!-- Extras Section -->
+    <section id="extras" class="bg-white py-16 mb-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl mb-12">Zusätzliche Extras</h2>
+            <!-- Geändert zu 2 Spalten auf mittleren und großen Bildschirmen -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <!-- Extra: Logo-Design -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-transparent transition-all duration-300 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-600">Logo-Design</h3> <!-- (Einzeln) entfernt -->
+                    <p class="text-3xl font-bold mb-4 text-gray-900">
+                        ab 149 €
+                    </p>
+                    <p class="text-gray-700 mb-4 flex-grow">Professionelles Logo-Design passend zu Ihrer Marke (2 Entwürfe, 1 Revision).</p>
+                    <!-- "Jetzt anfragen" Button entfernt -->
+                </div>
+
+                <!-- Extra: Hosting & Domain -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-transparent transition-all duration-300 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-600">Hosting & Domain Service</h3>
+                    <p class="text-3xl font-bold mb-4 text-gray-900">
+                        79 € / Jahr
+                    </p>
+                    <p class="text-gray-700 mb-4 flex-grow">Wir kümmern uns um den passenden Speicherplatz und Ihre Wunschdomain. Ein Rundum-Sorglos-Paket für Ihre Online-Präsenz.</p>
+                    <!-- "Jetzt anfragen" Button entfernt -->
+                </div>
+
+                <!-- Extra: Content Erstellung -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-transparent transition-all duration-300 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-600">Content Erstellung</h3>
+                    <p class="text-3xl font-bold mb-4 text-gray-900">
+                        Auf Anfrage
+                    </p>
+                    <p class="text-gray-700 mb-4 flex-grow">Professionelle Foto und Video aufnahmen für Ihre Webseite oder social Media.</p>
+                    <!-- "Jetzt anfragen" Button entfernt -->
+                </div>
+
+                <!-- NEUES EXTRA: Social Media Account Erstellung -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-transparent transition-all duration-300 flex flex-col items-center justify-center text-center">
+                    <h3 class="text-2xl font-semibold mb-3 text-purple-600">Social Media Account Erstellung</h3>
+                    <p class="text-3xl font-bold mb-4 text-gray-900">
+                        Auf Anfrage
+                    </p>
+                    <p class="text-gray-700 mb-4 flex-grow">Erstellung und Einrichtung professioneller Social Media Profile, die Ihre Marke optimal präsentieren.</p>
+                    <!-- "Jetzt anfragen" Button entfernt -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
     <!-- Kontakt Section -->
     <section id="contact" class="bg-gradient-to-r from-purple-600 to-indigo-500 text-white py-20 rounded-t-lg shadow-lg">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl mb-8">Bereit für deine neue Webseite?</h2>
             <p class="text-lg mb-12 max-w-2xl mx-auto">
-                Kontaktiere mich für ein unverbindliches Erstgespräch. Ich freue mich darauf, dein Projekt kennenzulernen!
-            </p>
+                Kontaktiere mich für ein unverbindliches Erstgespräch. Ich freue mich darauf, dein Projekt kennenzulernen! Gerne kannst du mir auch direkt eine E-Mail schreiben an <a href="mailto:maltenow2@gmail.com" class="underline hover:text-indigo-200 transition duration-300">maltenow2@gmail.com</a>.
+            </p> <!-- E-Mail-Adresse und Link hinzugefügt -->
             <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl text-gray-800">
                 <form action="#" method="POST" class="space-y-6">
                     <div>
