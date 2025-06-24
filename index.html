@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyrtaDesign - Professionelle Webseiten</title> <!-- Website-Titel geändert -->
+    <!-- Lade Google Font: Open Sans für eine klare und moderne Optik -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Lade Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Grundschriftart Open Sans für eine moderne und lesbare Optik */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Geänderte Schriftart */
+            @apply bg-gray-50 text-gray-800; /* Heller Hintergrund, dunkler Text */
+        }
+        /* Eigene Klasse für Button-Stile im Hero-Bereich (Primär) */
+        .btn-primary {
+            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-lg 
+                   transform hover:scale-105 hover:bg-indigo-700 hover:shadow-xl 
+                   transition-all duration-300 ease-in-out;
+        }
+        /* Eigene Klasse für Button-Stile im Hero-Bereich (Sekundär) */
+        .btn-secondary {
+            @apply inline-block px-8 py-3 bg-transparent text-white font-semibold rounded-full 
+                   border-2 border-white 
+                   hover:bg-white hover:text-indigo-600 hover:shadow-xl 
+                   transition-all duration-300 ease-in-out;
+        }
+        /* Neue Klasse für die "Jetzt anfragen"-Buttons in den Paketen */
+        .btn-package-cta {
+            @apply inline-block px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full 
+                   border-2 border-white shadow-lg /* Permanenter weißer Rahmen und Hintergrund */
+                   hover:bg-indigo-700 hover:border-white /* Rahmen bleibt, Hintergrund dunkelt ab */
+                   transition duration-300 ease-in-out;
+        }
+        /* Stil für Überschriften */
+        h1, h2, h3 {
+            @apply font-bold text-gray-900;
+        }
+        /* Abstände für Sektionen */
+        section {
+            @apply py-16 px-4 md:px-8 lg:px-16;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold text-indigo-600">HyrtaDesign</a> <!-- Website-Name geändert -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-gray-600 hover:text-indigo-600 transition duration-300">Startseite</a></li>
+                <li><a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-300">Über HyrtaDesign</a></li>
+                <li><a href="#packages" class="text-gray-600 hover:text-indigo-600 transition duration-300">Pakete</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-300">Kontakt</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none" aria-label="Menü öffnen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay (Hidden by default, shown by JS) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 p-4 md:hidden">
+        <div class="flex justify-end">
+            <button class="text-gray-600 hover:text-indigo-600 focus:outline-none" aria-label="Menü schließen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <ul class="flex flex-col items-center space-y-6 mt-8">
+            <li><a href="#home" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Startseite</a></li>
+            <li><a href="#about" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Über HyrtaDesign</a></li>
+            <li><a href="#packages" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pakete</a></li>
+            <li><a href="#contact" class="text-gray-800 text-xl hover:text-indigo-600 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-center py-20 rounded-b-lg shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight">
+                Professionelle Webseiten
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Einfach. Direkt. Online. Hümo. <!-- Slogan beibehalten -->
+            </p>
+            <div class="space-x-4">
+                <a href="#packages" class="btn-primary">Meine Pakete entdecken</a>
+                <a href="#contact" class="btn-secondary">Kontaktiere mich</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über mich Section -->
+    <section id="about" class="bg-white rounded-lg shadow-lg -mt-10 mx-4 md:mx-8 lg:mx-16 py-12 px-6 mb-16">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-full">
+                <h2 class="text-3xl md:text-4xl mb-4">Über HyrtaDesign</h2> <!-- Überschrift geändert -->
+                <p class="text-lg leading-relaxed mb-4">
+                    HyrtaDesign bietet Unternehmen und Selbstständigen umfassende Webdesign-Lösungen, um ihre Online-Präsenz zu stärken und neue Kunden zu gewinnen. Wir legen Wert auf benutzerfreundliches Design, schnelle und effektive Ergebnisse sowie maßgeschneiderte Lösungen, die perfekt zu Ihren individuellen Anforderungen passen.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Unser Ziel ist es, Ihnen ein digitales Schaufenster zu schaffen, das nicht nur optisch überzeugt, sondern auch im Preis. Vertrauen Sie auf HyrtaDesign, um Ihre Vision online Wirklichkeit werden zu lassen.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pakete Section -->
+    <section id="packages" class="bg-gray-50 py-16 mb-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl mb-12">Webdesign-Pakete</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <!-- Paket Basis -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Basis</h3>
+                    <p class="text-4xl font-bold mb-6 text-gray-900">
+                        99,99 €
+                        <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
+                    </p>
+                    <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Einfache, professionelle Webseite (1-3 Seiten)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Responsive Design (mobilfreundlich)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Basiskonzeption & Design</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mt-4 text-center">(* Bestehende Webseite erforderlich, inkl. Domain)</p> <!-- Punkt verschoben und in Klammern gesetzt -->
+                    <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
+                </div>
+
+                <!-- Paket Standard -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Standard</h3>
+                    <p class="text-4xl font-bold mb-6 text-gray-900">
+                        ab 299,99 €
+                        <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
+                    </p>
+                    <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Umfangreichere Webseite (bis 5-7 Seiten)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile des Basis-Pakets</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> SEO-Grundlagen (Titel, Meta-Beschreibungen)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Google Maps Integration</li>
+                    </ul>
+                    <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
+                </div>
+
+                <!-- Paket Premium -->
+                <div class="bg-white p-8 rounded-lg shadow-md border border-transparent hover:border-indigo-600 hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-3 text-indigo-600">Paket Premium</h3>
+                    <p class="text-4xl font-bold mb-6 text-gray-900">
+                        ab 599,99 €
+                        <span class="text-lg font-normal text-gray-500 block">pro Webseite</span>
+                    </p>
+                    <ul class="text-left text-gray-700 space-y-2 flex-grow mb-6">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Komplexe Webseite (mehr Seiten)</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Alle Vorteile des Standard-Pakets</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Individuelles Design</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Erweiterte SEO-Optimierung</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Umfassende Content-Beratung</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Galerien & Portfolio-Integration</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Social Media Integration</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> 6 Monate kostenloser technischer Support & Wartung</li>
+                    </ul>
+                    <a href="#contact" class="btn-package-cta mt-auto">Jetzt anfragen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="contact" class="bg-gradient-to-r from-purple-600 to-indigo-500 text-white py-20 rounded-t-lg shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl mb-8">Bereit für deine neue Webseite?</h2>
+            <p class="text-lg mb-12 max-w-2xl mx-auto">
+                Kontaktiere mich für ein unverbindliches Erstgespräch. Ich freue mich darauf, dein Projekt kennenzulernen!
+            </p>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl text-gray-800">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-sm font-medium text-gray-700">Dein Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Max Mustermann" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-sm font-medium text-gray-700">Deine E-Mail</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="max.mustermann@email.de" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-left text-sm font-medium text-gray-700">Telefon (optional)</label>
+                        <input type="tel" id="phone" name="phone" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="+49 123 456789">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-sm font-medium text-gray-700">Deine Nachricht</label>
+                        <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Beschreibe kurz dein Vorhaben und welches Paket dich interessiert..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full btn-primary">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
+            <p class="mb-4 md:mb-0">&copy; 2025 HyrtaDesign. Alle Rechte vorbehalten.</p> <!-- Website-Name geändert -->
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#" class="hover:text-indigo-400 transition duration-300">Impressum</a></li>
+                <li><a href="#" class="hover:text-indigo-400 transition duration-300">Datenschutz</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript für das mobile Menü
+        const mobileMenuButton = document.querySelector('header button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = mobileMenu.querySelector('button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Schließen des mobilen Menüs beim Klicken auf einen Link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
